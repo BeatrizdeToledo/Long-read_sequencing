@@ -14,8 +14,8 @@ cat High_QualityIsoforms_1878_hq_transcripts.fasta | sed 's/UnnamedSample_HQ_//g
 # --split-output=STRING          Basename for multiple-file output, separately for nomapping, 
 #                                   uniq, mult, (and chimera, if --chimera-margin is selected)
 
-gmap_build -d GENOME_Assembly -s none -k 15 -D /group/calegari_beatrizepi/Long-read_sequencing/GMAP/ Mus_musculus.GRCm38.dna.primary_assembly.fa
-gmap -D /group/calegari_beatrizepi/GMAP/GMAP/ -d GENOME_Assembly hq_transcripts_renamed.fasta --no-chimeras --min-trimmed-coverage 0.85 --min-identity 0.9 -B 5 -t 24 -f samse --cross-species -z sense_force -n 1 -K 400000 > highquality_gmap1.sam
+gmap_build -d GENOME_Assembly -s none -k 15 -D /Long-read_sequencing/GMAP/ Mus_musculus.GRCm38.dna.primary_assembly.fa
+gmap -D /GMAP/GMAP/ -d GENOME_Assembly hq_transcripts_renamed.fasta --no-chimeras --min-trimmed-coverage 0.85 --min-identity 0.9 -B 5 -t 24 -f samse --cross-species -z sense_force -n 1 -K 400000 > highquality_gmap1.sam
 
 
 

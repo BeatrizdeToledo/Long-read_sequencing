@@ -1,0 +1,17 @@
+#SQANTI3 classification
+# used --cage_peak, --polyA_motif_list, -e and  -c to improve the quality of the classification and filtering
+
+
+module load apps/singularity/3.5.2
+
+singularity exec -B  /Beatriz_Toledo/gc/Sqanti /projects/globalscratch/sqanti3_3.0.sif sqanti3_qc.py highquality_gmap1_sort_cup.collapsed.filtered.gff Mus_musculus.GRCm38.101.gtf Mus_musculus.GRCm38.dna.primary_assembly.fa --cage_peak 1refTSS_v3.3_mouse_coordinate.mm10.bed --polyA_motif_list PolyA_motif.txt  --gtf -e GC.rsemSTAR_L393.isoforms.results,GC.rsemSTAR_L355.isoforms.results,GC.rsemSTAR_L222.isoforms.results,GC.rsemSTAR_L395.isoforms.results,GC.rsemSTAR_L357.isoforms.results,GC.rsemSTAR_L224.isoforms.results,GC.rsemSTAR_L394.isoforms.results,GC.rsemSTAR_L356.isoforms.results,GC.rsemSTAR_L223.isoforms.results -fl highquality_gmap1_sort_cup.collapsed.filtered.abundance.txt -o GC_sqanti2  --isoAnnotLite --gff3 Mus_musculus_GRCm38_Ensembl_86.gff3 -c L356_twopassSJ.out.tab,L223_twopassSJ.out.tab,L394_twopassSJ.out.tab,L357_twopassSJ.out.tab,L224_twopassSJ.out.tab,L395_twopassSJ.out.tab,L355_twopassSJ.out.tab,L222_twopassSJ.out.tab,L393_twopassSJ.out.tab
+
+singularity exec -B /Beatriz_Toledo/Sqanti /projects/globalscratch/sqanti3_3.0.sif python /SQANTI3/sqanti3_RulesFilter.py GC_sqanti_classification.txt GC_sqanti_corrected.fasta GC_sqanti_corrected.gtf
+
+#SQANTI3 filtering
+
+module load apps/singularity/3.5.2
+
+singularity exec -B  /Beatriz_Toledo/gc/Sqanti /projects/globalscratch/sqanti3_3.0.sif sqanti3_qc.py highquality_gmap1_sort_cup.collapsed.filtered.gff Mus_musculus.GRCm38.101.gtf Mus_musculus.GRCm38.dna.primary_assembly.fa --cage_peak 1refTSS_v3.3_mouse_coordinate.mm10.bed --polyA_motif_list PolyA_motif.txt  --gtf  -fl highquality_gmap1_sort_cup.collapsed.filtered.abundance.txt -o GC_sqanti  --isoAnnotLite --gff3 Mus_musculus_GRCm38_Ensembl_86.gff3 
+
+singularity exec -B /Beatriz_Toledo/gc/Sqanti /projects/globalscratch/sqanti3_3.0.sif python /SQANTI3/sqanti3_RulesFilter.py GC_sqanti_classification.txt GC_sqanti_corrected.fasta GC_sqanti_corrected.gtf

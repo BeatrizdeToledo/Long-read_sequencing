@@ -1,0 +1,21 @@
+# Generation of junction coverage for SQANTI3
+# First is needed to genome indices Generation
+
+STAR --runThreadN 65 --runMode genomeGenerate --genomeDir /Beatriz_Toledo/ --genomeFastaFiles Mus_musculus.GRCm38.dna.primary_assembly.fa --sjdbGTFfile highquality_gmap1_sort_cup.collapsed.filtered.gff --sjdbOverhang 99
+
+#now the junction coverage file is generated
+
+#sample1  - 3 replicates
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L393_R1.fastq /Beatriz_Toledo/sj/L393_R2.fastq --outFileNamePrefix L393_twopaPC --outSAMtype None --twopassMode Basic
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L222_R1.fastq /Beatriz_Toledo/sj/L222_R2.fastq --outFileNamePrefix L222_twopaPC --outSAMtype None --twopassMode Basic
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L355_R1.fastq /Beatriz_Toledo/sj/L355_R2.fastq --outFileNamePrefix L355_twopaPC --outSAMtype None --twopassMode Basic
+
+#sample2 - 3 replicates
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L223_R2.fastq /Beatriz_Toledo/sj/L223_R1.fastq --outFileNamePrefix L223_twopaPC --outSAMtype None --twopassMode Basic
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L394_R2.fastq /Beatriz_Toledo/sj/L394_R1.fastq --outFileNamePrefix L394_twopaPC --outSAMtype None --twopassMode Basic
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L356_R2.fastq /Beatriz_Toledo/sj/L356_R1.fastq --outFileNamePrefix L356_twopaPC --outSAMtype None --twopassMode Basic
+
+#sample3  - 3 replicates
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L395_R2.fastq /Beatriz_Toledo/sj/L395_R1.fastq --outFileNamePrefix L395_twopaPC --outSAMtype None --twopassMode Basic
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L357_R2.fastq /Beatriz_Toledo/sj/L357_R1.fastq --outFileNamePrefix L357_twopaPC --outSAMtype None --twopassMode Basic
+STAR --runThreadN 65 --genomeDir /Beatriz_Toledo/ --readFilesIn /Beatriz_Toledo/sj/L224_R2.fastq /Beatriz_Toledo/sj/L224_R1.fastq --outFileNamePrefix L224_twopaPC --outSAMtype None --twopassMode Basic
