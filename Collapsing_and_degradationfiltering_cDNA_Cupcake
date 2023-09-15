@@ -2,6 +2,8 @@
 # Optional -l 0 - to not compress -@ 10 
 #Different way of sorting: sort -k 3,3 -k 4,4n highquality_gmap1.sam > highquality_gmap1_sort_cup.sam
 
+qlogin -q all.q -l h_rt=44:00:00 -l mem_free=70G -R yes -now n -pe smp 1
+
 samtools sort -o highquality_gmap1_sorted.sam -O sam highquality_gmap1.sam
 
 

@@ -5,6 +5,7 @@
 # unpolished.cluster_report.csv the transcript ID is transcript/0,m54345U_200310_133837/123864620/ccs,FL
 # this difference is constant, therefore is just to cut the "UnnamedSample_HQ_" in the fasta file
 
+qlogin -q all.q -l h_rt=44:00:00 -l mem_free=70G -R yes -now n -pe smp 1
 cat High_QualityIsoforms_1878_hq_transcripts.fasta | sed 's/UnnamedSample_HQ_//g' > hq_transcripts_renamed.fasta
 
 #Kept the same size, same number of lines, and the head is  >transcript/0

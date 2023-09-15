@@ -1,4 +1,5 @@
 #In order to collapse redundant transcripts with tama is first needed to modify the .sam file. Need to remove chr and replace chrM with MT
+qlogin -q all.q -l h_rt=44:00:00 -l mem_free=70G -R yes -now n -pe smp 1
 
 cat hq.rn.sorted.sam | sed 's/chrM/MT/g' > hq.rn1.sorted.sam
 cat hq.rn1.sorted.sam | sed 's/chr//g' > hq.rn2.sorted.sam

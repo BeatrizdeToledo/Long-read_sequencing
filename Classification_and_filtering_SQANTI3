@@ -1,6 +1,7 @@
 #SQANTI3 classification
 # used --cage_peak, --polyA_motif_list, -e and  -c to improve the quality of the classification and filtering
 
+qlogin -q all.q -l h_rt=44:00:00 -l mem_free=70G -R yes -now n -pe smp 1
 
 module load apps/singularity/3.5.2
 

@@ -1,4 +1,6 @@
 #First I need to prepare the reference
+qlogin -q all.q -l h_rt=44:00:00 -l mem_free=70G -R yes -now n -pe smp 1
+
 rsem-prepare-reference --num-threads 40 --gtf highquality_gmap1_sort_cup.collapsed.filtered.gff --star Mus_musculus.GRCm38.dna.primary_assembly.fa GC.rsemSTAR
 
 rsem-calculate-expression --paired-end --strand-specific --star --num-threads 45 --no-bam-output L224_R1.fastq L224_R2.fastq GC.rsemSTAR GC.rsemSTAR_L224

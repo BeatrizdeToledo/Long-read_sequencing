@@ -1,5 +1,6 @@
 # Generation of junction coverage for SQANTI3
 # First is needed to genome indices Generation
+qlogin -q all.q -l h_rt=44:00:00 -l mem_free=70G -R yes -now n -pe smp 1
 
 STAR --runThreadN 65 --runMode genomeGenerate --genomeDir /Beatriz_Toledo/ --genomeFastaFiles Mus_musculus.GRCm38.dna.primary_assembly.fa --sjdbGTFfile highquality_gmap1_sort_cup.collapsed.filtered.gff --sjdbOverhang 99
 
